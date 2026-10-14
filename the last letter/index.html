@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Last Letter - Titik Kusmawati</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Fullscreen Video Background dengan Overlay Sinematik -->
+    <div class="video-bg-container" aria-hidden="true">
+        <video id="bgVideo" autoplay loop muted playsinline poster="assets/memory-photo.jpeg">
+            <source src="assets/memory-video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+        <div class="cinematic-vignette"></div>
+        <div class="particles-container" id="particles"></div>
+    </div>
+
+    <!-- Audio Instrumental Latar Belakang -->
+    <audio id="bgAudio" loop preload="auto">
+        <source src="WhatsApp Audio 2026-10-14 at 08.53.47.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Tombol Kontrol Musik Interaktif -->
+    <button id="soundToggleBtn" class="sound-toggle-btn" aria-label="Kontrol Musik">
+        <span id="soundIcon">🔇</span>
+        <span id="soundText">Musik</span>
+    </button>
+
+    <!-- Pembungkus Utama -->
+    <main class="app-wrapper">
+
+        <!-- Tampilan Amplop Pembuka (Landing Page) -->
+        <section class="envelope-container" id="envelopeSection" aria-label="Amplop Kenangan">
+            <div class="envelope-card" id="envelope" role="button" tabindex="0" aria-label="Buka Amplop Surat">
+                <div class="envelope-back"></div>
+                <div class="letter-preview" id="letterPreview"></div>
+                <div class="envelope-front"></div>
+                <div class="envelope-flap" id="envelopeFlap"></div>
+                
+                <!-- Wax Seal Emas / Sage -->
+                <div class="wax-seal" id="waxSeal">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+
+                <div class="envelope-label">
+                    <p class="to-text">Untuk: Titik Kusmawati</p>
+                    <span class="click-prompt">sentuh untuk membuka</span>
+                </div>
+            </div>
+            <p class="envelope-subtext">sebuah cerita tersimpan di dalamnya.</p>
+        </section>
+
+        <!-- Efek Asap Melayang Saat Amplop Terbuka -->
+        <div class="smoke-container" id="smokeContainer" aria-hidden="true"></div>
+
+        <!-- Tampilan Surat Utama (Kertas Transparan Glassmorphism) -->
+        <section class="letter-container hidden" id="letterSection" aria-label="Isi Surat Digital">
+            <article class="letter-paper" id="letterPaper">
+                
+                <!-- Header Surat -->
+                <header class="letter-header">
+                    <h1 class="letter-title">The Last Letter</h1>
+                    <p class="letter-subtitle">a story that will always be part of my journey.</p>
+                    <div class="divider-line"></div>
+                </header>
+
+                <!-- Isi Paragraf Surat Dinamis -->
+                <main class="letter-body" id="letterBody" aria-live="polite">
+                    <!-- Konten Diinjeksi oleh JavaScript -->
+                </main>
+
+                <!-- Footer Navigasi Surat -->
+                <footer class="letter-footer">
+                    <div class="divider-line"></div>
+                    <nav class="pagination-nav" aria-label="Navigasi Halaman Surat">
+                        <button id="prevBtn" class="nav-btn" aria-label="Halaman Sebelumnya" disabled>
+                            <span aria-hidden="true">⬅️</span>
+                        </button>
+                        <span id="pageIndicator" class="page-indicator" aria-live="polite">01 / 01</span>
+                        <button id="nextBtn" class="nav-btn" aria-label="Halaman Berikutnya">
+                            <span aria-hidden="true">➡️</span>
+                        </button>
+                    </nav>
+                </footer>
+            </article>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
